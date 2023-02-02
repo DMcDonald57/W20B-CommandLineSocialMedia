@@ -31,13 +31,6 @@ def login():
     selection = input("please select:\n")
     return selection
 
-def add_exploit():
-    content = input("Enter your recent Exploit")
-    cursor.execute("CALL add_exploits")
-
-    # def print_exploits():
-    #     for thought in thoughts:
-    #     print(thought)
 
 def prompt():
     while True:
@@ -48,18 +41,23 @@ def prompt():
             print("Not a number")
             continue
         if selection == 1:
-            add_exploit()
-        elif selection == 2:
-            print_exploits()
-        elif selection == 3:
-            pass
+            input("Enter your recent Exploit")
+            cursor.execute("CALL add_content")
+        # elif selection == 2:
+        #     print_exploits()
+        # elif selection == 3:
+        #     pass
         elif selection ==4:
             print("All done")
             break
         else: 
             print("invalid selection")
 
-thoughts = []
+    # def add_exploit():
+    #     content = input("Enter your recent Exploit")
+    #     return content
+    #     cursor.execute("INSERT INTO exploits (content) VALUES ('content','user_id')")
+
 
 login()
 prompt()
