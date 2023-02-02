@@ -21,9 +21,8 @@ def login():
     if results is False:
         print("User not found")
     else:
-        id = results[0]
-        # print(id)
-        print("Welcome Back {}.\n".format(alias))
+        results[0]
+        print("Nice to see you {}.\n".format(alias))
         print("1. Add a new Exploit")
         print("2. Review your Exploits")
         print("3. See what others have done")
@@ -32,4 +31,35 @@ def login():
     selection = input("please select:\n")
     return selection
 
+def add_exploit():
+    content = input("Enter your recent Exploit")
+    cursor.execute("CALL add_exploits")
+
+    # def print_exploits():
+    #     for thought in thoughts:
+    #     print(thought)
+
+def prompt():
+    while True:
+        selection = 0
+        try:          
+            selection = int(prompt())
+        except ValueError:
+            print("Not a number")
+            continue
+        if selection == 1:
+            add_exploit()
+        elif selection == 2:
+            print_exploits()
+        elif selection == 3:
+            pass
+        elif selection ==4:
+            print("All done")
+            break
+        else: 
+            print("invalid selection")
+
+thoughts = []
+
 login()
+prompt()
